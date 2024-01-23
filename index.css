@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+.setting-page{
+    width: 100vw;
+    height: 100vh;
+}
+
+.setting-page__header{
+    width: 100%;
+    height: 56px;
+    background-color: aqua;
+}
+
+.setting-page__body{
+    display: flex;
+    width: 100%;
+    height: calc(100% - 56px);
+}
+
+.setting-page__sidebar{
+    width: 200px;
+    height: 100%;
+    background-color: bisque;
+}
+
+.setting-page__content{
+    width: calc(100% - 200px);
+    height: 100%;
+    background-color: blue;
+}
