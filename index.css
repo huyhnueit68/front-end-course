@@ -8,9 +8,13 @@
 }
 
 .setting-page__header{
-    width: 100%;
+    width: calc(100% - 64px);
     height: 56px;
-    background-color: aqua;
+    padding: 0px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: #959da533 0px 8px 24px;
 }
 
 .setting-page__body{
@@ -22,11 +26,111 @@
 .setting-page__sidebar{
     width: 200px;
     height: 100%;
-    background-color: bisque;
+    background-color: #34495e;
 }
 
 .setting-page__content{
     width: calc(100% - 200px);
     height: 100%;
-    background-color: blue;
+    background-color: #eff4f7;
+}
+
+.page__header-left {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.page__header-height{
+    height: 100%;
+    width: fit-content;
+}
+
+.header-left--logo{
+    width: 37px;
+    height: 41px;
+    background-image: url('./img/logo.svg');
+    background-repeat: no-repeat;
+}
+
+.header-left--dashboard{
+    padding: 0px 36px;
+    display: flex;
+    align-items: center;
+}
+.header-left--dashboard
+.dashboard-icon{
+    width: 23px;
+    height: 22px;
+    background: url('./img/dashboard.svg') no-repeat;
+    cursor: pointer;
+
+}
+.header-left--dashboard
+.dashboard-text{
+    padding-left: 8px;
+}
+
+
+
+.header-left--app{
+    display: flex;
+    align-items: center;
+}
+.header-left--app
+.app-icon{
+    width: 23px;
+    height: 22px;
+    background: url('./img/dashboard.svg') no-repeat;
+    cursor: pointer;
+}
+.header-left--app
+.app-text{
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+.page__header-right{
+    display: flex;
+    align-items: center;
+}
+
+.page__header-right
+.icon{
+    width: 23px;
+    height: 23px;
+}
+
+.page__header-right
+.icon:hover {
+    cursor: pointer;
+}
+
+.page__header-right
+.icon.search-icon {
+    background: url('./img/search-icon.svg') no-repeat;
+}
+
+.page__header-right
+.icon.noti-icon {
+    background: url('./img/noti-icon.svg') no-repeat;
+}
+
+.page__header-right
+.icon.profile-icon {
+    background: url('./img/profile-icon.svg') no-repeat;
+}
+
+.page__header-right
+.icon.setting-icon {
+    background: url('./img/setting-icon.svg') no-repeat;
+}
+
+.header-right--noti{
+    padding: 0px 16px;
+}
+
+.header-right--profile{
+    padding: 0px 16px 0px 0px;
 }
