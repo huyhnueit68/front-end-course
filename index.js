@@ -28,6 +28,19 @@ var listTabs = [
     }
 ];
 
+var currentTabs = 'USER';
+var isOpenSideBar = true;
+
+/**
+ * Func set current tabs
+ * @param {*} tabName 
+ * CreatedBy: PQ Huy (26.01.2024)
+ */
+function handActiveTab(tabName) {
+    currentTabs = tabName;
+}
+
+
 /**
  * Func display side bar tabs
  * @param {*} array list tabs
@@ -36,11 +49,21 @@ var listTabs = [
 function displayListTabs(array) {
     const outputDiv = document.getElementById('page__sidebar');
     
+    outputDiv.innerHTML = `
+        <div class="page__sidebar--btn-arrow">
+            <div class="btn-arrow__icon"></div>
+        </div>
+    `;
+
     array.forEach((item, index) => {
         let  appsHTML = '';
 
         item.apps.forEach(app => {
-            appsHTML =  `${appsHTML} <div class='group-tabs__app'>${app}</div> `;
+            appsHTML = `${appsHTML} 
+                <div class='group-tabs__app ${currentTabs == app && 'group-tabs__app--active'}'>
+                    ${app}
+                </div> 
+            `;
         })
 
         // create div tag by js
@@ -57,7 +80,46 @@ function displayListTabs(array) {
         
         outputDiv.appendChild(listItem);
     });
+
+    setEventTabs();
+
+
+    // set is open side bar
+    var currentClass = outputDiv.className;
+    const divContent = document.getElementsByClassName('setting-page__content');
+
+    if(!isOpenSideBar) {
+        outputDiv.className =  `${currentClass} side-bar--close`;
+        if(divContent?.length > 0) {
+            divContent[0].className = `${divContent.className} content-full`;
+        }
+    } else {
+        outputDiv.className =  `${currentClass}`.replace('side-bar--close', '');
+        if(divContent?.length > 0) {
+            divContent[0].className = `${divContent.className}`.replace('content-full', '');
+        }
+    }
 }
 
 // Call the function to display the array
 displayListTabs(listTabs);
+
+
+
+// set event click active tag
+function setEventTabs() {
+    var lstTabs = document.getElementsByClassName('group-tabs__app');
+    for (let index = 0; index < lstTabs.length; index++) {
+        lstTabs[index]?.addEventListener('click', function (event) {
+            handActiveTab(event?.srcElement?.innerText);
+            displayListTabs(listTabs);
+        });
+    }
+
+    document.getElementsByClassName('page__sidebar--btn-arrow')[0]
+        .addEventListener('click', function(event) {
+            isOpenSideBar = !isOpenSideBar;
+            displayListTabs(listTabs);
+
+        });
+}
