@@ -5,7 +5,7 @@ var listTabs = [
         apps: [
             "USER",
             "USER ROLE",
-            "PROJECT",
+            "PROJECT", 
             "OPEN API"
         ]
     },
@@ -87,16 +87,18 @@ function displayListTabs(array) {
     // set is open side bar
     var currentClass = outputDiv.className;
     const divContent = document.getElementsByClassName('setting-page__content');
-
+    
     if(!isOpenSideBar) {
         outputDiv.className =  `${currentClass} side-bar--close`;
+
         if(divContent?.length > 0) {
-            divContent[0].className = `${divContent.className} content-full`;
+            divContent[0].className = `${divContent[0].className} content-full`;
         }
     } else {
         outputDiv.className =  `${currentClass}`.replace('side-bar--close', '');
+
         if(divContent?.length > 0) {
-            divContent[0].className = `${divContent.className}`.replace('content-full', '');
+            divContent[0].className = `${divContent[0].className}`.replace('content-full', '');
         }
     }
 }
